@@ -8,7 +8,9 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: process.env.UI_URL,
+}));
 app.use('/api/v1/book', router);
 
 const SERVER_PORT = process.env.SERVER_PORT;
